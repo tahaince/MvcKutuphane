@@ -1,0 +1,34 @@
+﻿@model MvcKutuphane.Models.Entity.TBL_HAKKINDA
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+
+
+
+@using (Html.BeginForm("Ekle", "Istatistik", FormMethod.Post))
+{
+    <form class="form-group">
+
+        <div>
+            <div>
+                <label>HAKKINDA</label>
+                @Html.TextBoxFor(y => y.HAKKINDA, new { @class = "form-control" })
+                @Html.ValidationMessageFor(y => y.HAKKINDA, "", new { @style = "color:red" })
+            </div>
+            <br />
+
+            <input type="hidden"  name="DURUM" value="false"/>
+        
+
+            <div><button class="btn btn-success">Ekle</button> </div>
+
+        </div>
+
+
+
+
+    </form>
+}

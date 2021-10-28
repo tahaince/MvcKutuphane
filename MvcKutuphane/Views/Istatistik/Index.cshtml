@@ -1,0 +1,174 @@
+﻿@using MvcKutuphane.Models.Entity
+@model MvcKutuphane.Models.sınıflar.Class2
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<link href="~/web2/css/style.css" rel="stylesheet" />
+<script src="~/web2/js/Chart1.js"></script>
+<script src="~/web2/js/jquery.min.js"></script>
+<script src="~/web2/js/jquery.vmap.js"></script>
+<script src="~/web2/js/jquery.vmap.sampledata.js"></script>
+<script src="~/web2/js/jquery.vmap.world.js"></script>
+<link href="~/web2/css/jqvmap.css" rel="stylesheet" />
+<link href="~/web2/css/nav.css" rel="stylesheet" />
+<script src="~/web2/js/main.js"></script>
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        jQuery('#vmap').vectorMap({
+            map: 'world_en',
+            backgroundColor: '#333333',
+            color: '#ffffff',
+            hoverOpacity: 0.7,
+            selectedColor: '#666666',
+            enableZoom: true,
+            showTooltip: true,
+            values: sample_data,
+            scaleColors: ['#C8EEFF', '#006491'],
+            normalizeFunction: 'polynomial'
+        });
+    });
+</script>
+
+
+<script>
+    $(document).ready(function (c) {
+        $('.alert-close6').on('click', function (c) {
+            $('.world-map').fadeOut('slow', function (c) {
+                $('.world-map').remove();
+            });
+        });
+    });
+</script>
+
+<br />
+
+<div class="sales">
+    <div class="icon">
+        <i class="dollar"></i>
+    </div>
+    <div class="icon-text">
+        <h3>15896</h3>
+        <p>Kasa Tutarı</p>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="new-users">
+    <div class="icon">
+        <i class="user1"></i>
+    </div>
+    <div class="icon-text">
+        <h3>@ViewBag.dgr3</h3>
+        <p>Ödünç Verilen Kitap Sayısı</p>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="orders">
+    <div class="icon">
+        <i class="order"></i>
+    </div>
+    
+    
+    <div class="icon-text">
+        <h3>@ViewBag.dgr2</h3>
+        <p>Toplam Kitap Sayısı</p>
+    </div>
+    <div class="clearfix"></div>
+    
+</div>
+<div class="visitors">
+    <div class="icon">
+        <i class="visit"></i>
+    </div>
+    <div class="icon-text">
+        <h3>@ViewBag.dgr1</h3>
+        <p>Üye Sayısı</p>
+    </div>
+
+</div>
+<div><br /><br /></div>
+
+<div class="total-sales">
+    <div class="user-trends">
+        <div><br /><br /></div>
+        <div><br /><br /></div>
+
+
+        <canvas id="bar" height="340" width="780"></canvas>
+        <script>
+
+            var barChartData = {
+                labels: ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz"],
+                datasets: [
+                    {
+                        fillColor: "rgba(255, 137, 167, 0.78)",
+                        strokeColor: "rgba(220,220,220,1)",
+                        data: [65, 59, 90, 81, 56, 55, 40]
+                    },
+                    {
+                        fillColor: "rgba(140, 145, 255, 0.69)",
+                        strokeColor: "rgba(151,187,205,1)",
+                        data: [28, 48, 40, 19, 96, 27, 100]
+                    }
+                ]
+
+            }
+
+            var myLine = new Chart(document.getElementById("bar").getContext("2d")).Bar(barChartData);
+
+        </script>
+    </div>
+
+    <div><br /><br /></div>
+
+    <div>
+    <br />    
+        <table class="table table-bordered" style="margin:10px">
+
+            <tr>
+                <td class="bg-dark" style="color:white">ID</td>
+
+                <td class="bg-dark" style="color:white">HAKKIMIZDA</td>
+                <td class="bg-dark" style="color:white">DURUM</td>
+                <td class="bg-dark" style="color:white">İşlemler</td>
+
+
+
+            </tr>
+
+
+            @foreach (var x in Model.deger5)
+            {
+
+
+
+
+        <tr>
+            <td>@x.ID</td>
+            <td>@x.HAKKINDA</td>
+            @if (x.DURUM == true)
+            {
+                <td> Yayında</td>
+            }
+            @if(x.DURUM==false)
+            {
+               <td>Kapalı</td>
+            }
+            <td>
+                <a class="btn btn-danger" href="/Istatistik/Guncelle/@x.ID">KALDIR</a>
+                <a class="btn btn-success" href="/Istatistik/Guncelle2/@x.ID">YAYINLA</a>
+            </td>
+        </tr>
+
+            }
+        </table>
+        <a href="/Istatistik/Ekle/"><button class="btn btn-info">EKLE</button></a>
+
+
+
+        </div>
+
+
+

@@ -1,0 +1,37 @@
+﻿@using MvcKutuphane.Models.Entity
+@model List<TBL_DUYURU>
+
+    @{
+        ViewBag.Title = "Duyuru";
+        Layout = "~/Views/Shared/OgrenciLayout.cshtml";
+    }
+
+    <table style="margin:20px" class="table table-bordered">
+
+        <tr style="background-color:#ff6a00">
+
+            <td>ID</td>
+            <td>KONU</td>
+            <td>ICERIK</td>
+
+
+
+        </tr>
+
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.ID</td>
+                <td>@x.KONU</td>
+                <td>@x.ICERIK</td>
+
+
+            </tr>
+
+        }
+
+
+
+    </table>
+
+  

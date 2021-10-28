@@ -1,0 +1,64 @@
+﻿@model MvcKutuphane.Models.Entity.TBL_UYELER
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/OgrenciLayout.cshtml";
+}
+<head>
+
+</head>
+
+@using (Html.BeginForm("Index2", "Panel", FormMethod.Post))
+{
+    <table class="table table-bordered">
+        <tr>
+            <td>
+                ID
+                @Html.TextBoxFor(x => x.ID, new { ReadOnly = "true", @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                AD
+                @Html.TextBoxFor(x => x.AD, new { ReadOnly = "true", @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                SOYAD
+                @Html.TextBoxFor(x => x.SOYAD, new { ReadOnly = "true", @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                MAIL
+                @Html.TextBoxFor(x => x.MAIL, new { ReadOnly = "true", @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                TELEFON
+                @Html.TextBoxFor(x => x.TELEFON, new { ReadOnly = "true", @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                OKUL
+                @Html.TextBoxFor(x => x.OKUL, new { ReadOnly = "true", @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                ŞİFRE
+                @Html.TextBoxFor(x => x.SIFRE, new { @class = "form-control" })
+            </td>
+        </tr>
+
+
+
+
+
+
+    </table>
+    <button class="btn btn-warning">Şifre Değiştir</button>
+}
+<br />

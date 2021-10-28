@@ -1,0 +1,38 @@
+﻿@using MvcKutuphane.Models.Entity
+@model List<TBL_ILETISIM>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+<table style="margin:20px" class="table table-bordered">
+
+    <tr style="background-color:#ff6a00">
+
+        <td>AD</td>
+        <td>MAIL</td>
+        <td>TELEFON</td>
+        <td>MESAJ</td>
+
+
+    </tr>
+
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.AD</td>
+            <td>@x.MAIL</td>
+            <td>@x.TELEFON</td>
+            <td>@x.MESAJ</td>
+
+
+        </tr>
+
+    }
+
+
+
+</table>
+
+

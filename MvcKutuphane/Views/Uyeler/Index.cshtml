@@ -1,0 +1,60 @@
+﻿@using MvcKutuphane.Models.Entity
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<TBL_UYELER>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+
+
+<table class="table table-bordered" style="margin-top:30px">
+
+
+    <tr class="bg-dark" style="color:white">
+        <td>ID</td>
+        <td>AD</td>
+        <td>SOYAD</td>
+        <td>MAIL</td>
+        <td>KULLANICI ADI</td>
+        <td>SIFRE</td>
+        <td>FOTOGRAF</td>
+        <td>TELEFON</td>
+        <td>OKUL ADI</td>
+        <td>İŞLEMLER</td>
+
+    </tr>
+    @foreach (var x in Model)
+    {
+
+        <tr>
+            <td>@x.ID</td>
+            <td>@x.AD</td>
+            <td>@x.SOYAD</td>
+            <td> @x.MAIL</td>
+            <td>@x.KULLANICIADI</td>
+            <td>@x.SIFRE</td>
+            <td>@x.FOTOGRAF</td>
+            <td>@x.TELEFON</td>
+            <td>@x.OKUL</td>
+            <td>
+                <a class="btn btn-danger" href="/Uyeler/UyeSil/@x.ID">Sil</a>
+                <a class="btn btn-success" href="/Uyeler/UyeGetir/@x.ID">Güncelle</a>
+            </td>
+
+        </tr>
+
+    }
+
+
+
+</table>
+@Html.PagedListPager((IPagedList)Model ,sayfa => Url.Action("Index",new {sayfa}),new PagedListRenderOptions { LiElementClasses = new List<string> { "page-link" } })
+
+<a href="/Uyeler/UyeEkle/"><button class="btn btn-info">Ekle</button></a>
+
+
+

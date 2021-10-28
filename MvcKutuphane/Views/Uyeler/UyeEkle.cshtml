@@ -1,0 +1,85 @@
+﻿@model MvcKutuphane.Models.Entity.TBL_UYELER
+@{
+    ViewBag.Title = "UyeEkle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+
+
+@using (Html.BeginForm("UyeEkle", "Uyeler", FormMethod.Post))
+{
+<div style="margin-top:30px">
+    <form class="form-group">
+
+        <div>
+            <div>
+                <label>Ad</label>
+                @Html.TextBoxFor(k => k.AD, new { @class = "form-control" })
+                @Html.ValidationMessageFor(y => y.AD, "", new { @style = "color:red" })
+            </div>
+            <br />
+
+            <div>
+                <label>Soyad</label>
+                @Html.TextBoxFor(k => k.SOYAD, new { @class = "form-control" })
+                @Html.ValidationMessageFor(y => y.SOYAD, "", new { @style = "color:red" })
+            </div>
+            <br />
+
+            <div>
+                <label>Maıl</label>
+                @Html.TextBoxFor(k => k.MAIL, new { @class = "form-control" })
+                @Html.ValidationMessageFor(y => y.MAIL, "", new { @style = "color:red" })
+            </div>
+            <br />
+
+            <div>
+                <label>Kullancı Adı</label>
+                @Html.TextBoxFor(k => k.KULLANICIADI, new { @class = "form-control" })
+                @Html.ValidationMessageFor(y => y.KULLANICIADI, "", new { @style = "color:red" })
+            </div>
+            <br />
+
+            <div>
+                <label>Şifre</label>
+                @Html.TextBoxFor(k => k.SIFRE, new { @class = "form-control" })
+                @Html.ValidationMessageFor(y => y.SIFRE, "", new { @style = "color:red" })
+            </div>
+            <br />
+
+
+
+
+            <div>
+                <label>Fotoğraf</label>
+                @Html.TextAreaFor(k => k.FOTOGRAF, new { @class = "form-control" })
+
+            </div>
+            <br />
+
+            <div>
+                <label>Telefon</label>
+                @Html.TextAreaFor(k => k.TELEFON, new { @class = "form-control" })
+                @Html.ValidationMessageFor(y => y.TELEFON, "", new { @style = "color:red" })
+            </div>
+            <br />
+
+            <div>
+                <label>Okul</label>
+                @Html.TextAreaFor(k => k.OKUL, new { @class = "form-control" })
+            </div>
+            <br />
+            <div><button class="btn btn-success">Ekle</button> </div>
+
+        </div>
+
+
+
+
+    </form>
+</div>
+}
+
+
+

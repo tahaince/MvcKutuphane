@@ -1,0 +1,84 @@
+﻿@model MvcKutuphane.Models.Entity.TBL_UYELER
+@{
+    ViewBag.Title = "UyeGetir";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("UyeGuncelle", "Uyeler", FormMethod.Post))
+{
+<div class="form-group" style="margin-top:30px">
+
+    <div>
+        <label>ID</label>
+        @Html.TextBoxFor(k => k.ID, new { ReadOnly = "true", @class = "form-control" })
+    </div>
+    <br />
+    <div>
+        <label>AD</label>
+        @Html.TextBoxFor(k => k.AD, new { @class = "form-control" })
+        @Html.ValidationMessageFor(k => k.AD, "", new { @style = "color:red" })
+
+    </div>
+    <br />
+    <div>
+        <label>SOYAD</label>
+        @Html.TextBoxFor(k => k.SOYAD, new { @class = "form-control" })
+        @Html.ValidationMessageFor(k => k.SOYAD, "", new { @style = "color:red" })
+
+    </div>
+    <br />
+    <div>
+        <label>MAİL</label>
+        @Html.TextAreaFor(k => k.MAIL, new { @class = "form-control" })
+        @Html.ValidationMessageFor(k => k.MAIL, "", new { @style = "color:red" })
+
+    </div>
+    <br />
+
+    <div>
+        <label>KULLANICIADI</label>
+        @Html.TextBoxFor(k => k.KULLANICIADI, new { @class = "form-control" })
+        @Html.ValidationMessageFor(k => k.KULLANICIADI, "", new { @style = "color:red" })
+
+    </div>
+    <br />
+    <div>
+        <label>SIFRE</label>
+        @Html.TextAreaFor(k => k.SIFRE, new { @class = "form-control" })
+        @Html.ValidationMessageFor(k => k.SIFRE, "", new { @style = "color:red" })
+
+    </div>
+    <br />
+
+
+    <div>
+        <label>FOTOGRAF</label>
+        @Html.TextBoxFor(k => k.FOTOGRAF, new { @class = "form-control" })
+    </div>
+    <br />
+    <div>
+        <label>TELEFON</label>
+        @Html.TextAreaFor(k => k.TELEFON, new { @class = "form-control" })
+        @Html.ValidationMessageFor(k => k.TELEFON, "", new { @style = "color:red" })
+
+    </div>
+    <br />
+
+
+    <div>
+        <label>OKUL</label>
+        @Html.TextBoxFor(k => k.OKUL, new { @class = "form-control" })
+
+    </div>
+    <br />
+    
+
+
+
+    <button class="btn btn-secondary">Güncelle</button>
+
+</div>
+
+}
+

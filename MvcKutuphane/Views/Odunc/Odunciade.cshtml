@@ -1,0 +1,76 @@
+﻿@model MvcKutuphane.Models.Entity.TBL_HAREKET
+@{
+    ViewBag.Title = "Odunciade";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Odunciade</h2>
+
+
+
+
+
+@using (Html.BeginForm("OduncGuncelle", "Odunc", FormMethod.Post))
+{
+    <form class="form-group">
+
+        <div>
+
+
+            <div>
+                <label>HAREKET ID</label>
+                @Html.TextBoxFor(k => k.ID, new { @class = "form-control", ReadOnly = "true" })
+            </div>
+            <br />
+
+
+
+            <div>
+                <label>Kitap ID</label>
+                @Html.TextBoxFor(k => k.KITAP, new { ReadOnly = "true", @class = "form-control" })
+            </div>
+            <br />
+
+            <div>
+                <label>Üye ID</label>
+                @Html.TextBoxFor(k => k.UYE, new { ReadOnly = "true", @class = "form-control" })
+            </div>
+            <br />
+
+
+
+            <div>
+                <label>Personel ID</label>
+                @Html.TextBoxFor(k => k.PERSONEL, new { ReadOnly = "true", @class = "form-control" })
+            </div>
+            <br />
+
+            <div>
+                <label>Kitap Teslim Tarihi</label>
+                 @Html.TextBoxFor(k => k.ALISTARIH,"{0: dd.MM.yyyy}", new { ReadOnly = "true", @class = "form-control" })
+            </div>
+            <br />
+
+            <div>
+                <label>Kitap İade Tarihi</label>
+                @Html.TextBoxFor(k => k.IADETARIH, "{0: dd.MM.yyyy}", new { ReadOnly = "true", @class = "form-control" })
+            </div>
+            <br />
+
+
+            <div>
+                <label>Üye Getridği Tarih</label>
+                <input type="text" class="form-control" name="UYEGETIRTARIH" value="@DateTime.Now.ToShortDateString()" />
+            </div>
+            <br />
+
+
+            <div><button class="btn btn-success">Kitap İade Et</button> </div>
+
+        </div>
+
+
+
+
+    </form>
+}
